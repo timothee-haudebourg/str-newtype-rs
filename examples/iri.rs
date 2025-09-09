@@ -1,12 +1,15 @@
-use static_regular_grammar::RegularGrammar;
+use static_automata::{grammar, Validate};
+use str_newtype::StrNewType;
+
+#[grammar(file = "iri.abnf", export("IRI"))]
+mod automata {}
 
 /// IRI.
-#[derive(RegularGrammar, PartialEq, Eq)]
-#[grammar(
-	file = "examples/iri.abnf",
-	cache = "target/examples/iri.automaton.cbor",
-	sized(IriBuf, derive(PartialEq, Eq)),
-	serde
+#[derive(Validate, StrNewType, PartialEq, Eq, PartialOrd, Ord)]
+#[automaton(automata::Iri)]
+#[newtype(
+    ord(str, &str, String),
+    owned(IriBuf, derive(PartialEq))
 )]
 pub struct Iri(str);
 
