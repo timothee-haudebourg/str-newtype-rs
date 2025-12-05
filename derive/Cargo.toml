@@ -1,15 +1,16 @@
 [package]
 name = "str-newtype-derive"
-version = "2.0.2"
-edition = "2021"
-authors = ["Timothée Haudebourg <author@haudebourg.net>"]
-categories = ["parsing"]
-keywords = ["parsing", "abnf", "derive", "grammar", "regular"]
-description = "Derive macro for static regular grammar"
-repository = "https://github.com/timothee-haudebourg/static-automata"
-documentation = "https://docs.rs/static-automata"
-license = "MIT/Apache-2.0"
-readme = "README.md"
+description = "Derive macro to define safe wrappers around string types"
+authors.workspace = true
+categories.workspace = true
+keywords.workspace = true
+repository.workspace = true
+documentation.workspace = true
+license.workspace = true
+readme.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+version.workspace = true
 
 [lib]
 proc-macro = true
@@ -20,4 +21,3 @@ proc-macro-error = "1.0.4"
 syn = "2.0.18"
 quote = "1.0.29"
 thiserror = "1.0.40"
-# indoc = "2.0.1"
