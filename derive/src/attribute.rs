@@ -1,9 +1,9 @@
-use crate::{options::Derive, Error};
+use crate::{Error, options::Derive};
 use syn::{
+	Token,
 	parse::{Parse, ParseStream},
 	punctuated::Punctuated,
 	spanned::Spanned,
-	Token,
 };
 
 pub fn extract_attributes(

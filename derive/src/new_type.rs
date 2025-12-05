@@ -3,10 +3,10 @@ use quote::{format_ident, quote};
 use syn::spanned::Spanned;
 
 use crate::{
+	Error,
 	attribute::extract_attributes,
 	options::{Derive, ForeignOptions, Options, OwnedTypeOptions},
 	utils::SnakeCase,
-	Error,
 };
 
 pub fn derive(input: syn::DeriveInput) -> Result<TokenStream, Error> {
@@ -460,7 +460,7 @@ fn derive_owned_type(
 				/// Creates a new owned
 				#[doc = #name]
 				/// by parsing the input value.
-				pub fn new<T: ?Sized + str_newtype::Buffer>(input: T) -> Result<Self, #error<T>> {
+				pub fn new<T: str_newtype::Buffer>(input: T) -> Result<Self, #error<T>> {
 					if #ident::validate_bytes(input.as_bytes()) {
 						Ok(unsafe {
 							Self::new_unchecked(input.into_bytes())

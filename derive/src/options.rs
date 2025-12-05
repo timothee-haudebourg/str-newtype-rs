@@ -1,6 +1,6 @@
 use crate::{
-	attribute::{Attribute, OwnedTypeAttribute},
 	Error,
+	attribute::{Attribute, OwnedTypeAttribute},
 };
 
 #[derive(Default)]

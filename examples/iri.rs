@@ -1,4 +1,4 @@
-use static_automata::{grammar, Validate};
+use static_automata::{Validate, grammar};
 use str_newtype::StrNewType;
 
 #[grammar(file = "iri.abnf", export("IRI"))]
