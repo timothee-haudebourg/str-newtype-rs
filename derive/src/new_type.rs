@@ -289,14 +289,14 @@ fn derive_with_options(ident: syn::Ident, options: &Options) -> TokenStream {
 			/// Returns the
 			#[doc = #name]
 			/// as a string.
-			pub fn as_str(&self) -> &str {
+			pub const fn as_str(&self) -> &str {
 				&self.0
 			}
 
 			/// Returns the
 			#[doc = #name]
 			/// as a byte string.
-			pub fn as_bytes(&self) -> &[u8] {
+			pub const fn as_bytes(&self) -> &[u8] {
 				self.0.as_bytes()
 			}
 		}
@@ -497,7 +497,7 @@ fn derive_owned_type(
 					})
 				}
 
-				pub fn #as_ref(&self) -> &#ident {
+				pub const fn #as_ref(&self) -> &#ident {
 					unsafe {
 						#ident::new_unchecked(self.0.as_str())
 					}
